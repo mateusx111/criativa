@@ -1,0 +1,122 @@
+body {
+  background: #ffffff;
+  color: #323238;
+
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hide {
+  display: none;
+} 
+
+a {
+  color:#d34;
+  font-weight: bold; 
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; 
+}
+
+p, description {
+  font-size: 16px;
+  line-height:24px;
+  letter-spacing: 0.1px;
+}
+
+#container {
+  width: 80%;
+  max-width: 980px;
+
+  margin: 40px auto;
+
+  display: flex;
+}
+
+#intro {
+  width: 300px;
+  margin-right:20px;
+}
+
+main{
+  margin: 32px 0;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-evenly; 
+
+  margin-bottom:32px;
+}
+
+button {
+  background: none;
+  color: blue;
+  border: none;
+
+  font-weight: bold;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+
+  outline: none;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+ button.fat {
+  color: white;
+  background: #d34; 
+
+  width:150px;
+  height:40px;
+
+  border-radius: 8px;
+
+  box-shadow: 0px 8px 16px rgb(255, 0, 92, 0.16);
+}
+
+button.fat:hover {
+  text-decoration: none;
+}
+
+footer{
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+
+  color: #777
+}
+
+footer a {
+  opacity: 0.7
+}
+
+.idea {
+  display: flex;
+  background-color:#e1e1e6;
+  color: #111;
+  padding:32px;
+  margin-bottom: 32px;
+
+  border-radius: 8px;
+}
+
+.idea img {
+  width: 60px;
+  height: 60px;
+  margin: 32px
+}
+
+.idea p {
+  margin: 8px 0;
+}
