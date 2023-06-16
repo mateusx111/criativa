@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "layout.html" %}
+{% set bodyId = "page-ideas" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css">
-  <title>Ideias - Casa-criatica</title>
-</head>
+{% block title %}
+ <title>Ideias - Criatica</title>
+{% endblock title %}
 
-<body id="page-ideas">
 
-  <div id="container">
-    <header>
+{% block content %}
+<header>
       <a href="/">
         <img src="./logo.png" alt="Imagem da logomarca">
       </a>
@@ -39,11 +29,4 @@
       Com 💛 <a href="https://www.linkedin.com/in/mateus-s-santos-8b89791b6/" target="_blank">Mateus S. Santos</a>
     </footer>
   </div>
-
-  <!-- Modal -->
-  {% include "modal.html" %}
-
-  <script src="./script.js"></script>
-</body>
-
-</html>
+  {% endblock %}

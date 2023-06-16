@@ -1,59 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "layout.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css">
-  <title>Criativa</title>
-</head>
+{% block content %}
 
-<body>
+<section id="intro">
+  <header>
+    <a href="/">
+      <img src="./logo.png" alt="Imagem da logomarca">
+    </a>
+  </header>
 
-  <div id="container">
-    <section id="intro">
-      <header>
-        <a href="/">
-          <img src="./logo.png" alt="Imagem da logomarca">
-        </a>
-      </header>
+  <main>
+    <p>Ficar em casa longos períodos, não deve sert nada fácil.</p>
 
-      <main>
-        <p>Ficar em casa longos períodos, não deve sert nada fácil.</p>
+    <p>Por isso, iremos catalogar ideias,<strong>brincadeiras, jogos, filmes, cursos, livros,dicas</strong> e tudo
+      que for necessário para tornar esse momento mais interesante.</p>
 
-        <p>Por isso, iremos catalogar ideias,<strong>brincadeiras, jogos, filmes, cursos, livros,dicas</strong> e tudo
-          que for necessário para tornar esse momento mais interesante.</p>
-
-        <p>Comece clicando em ver ideias paara ver as ideias cadastradas e contribua adicionando a sua ideia./p>
-      </main>
+    <p>Comece clicando em ver ideias paara ver as ideias cadastradas e contribua adicionando a sua ideia./p>
+  </main>
 
 
-      <section id="buttons">
-        <button onclick="onOff()">+ Adicionar ideia</button>
-        <a href="/ideias" class="button"> ver ideia</a>
-      </section>
+  <section id="buttons">
+    <button onclick="onOff()">+ Adicionar ideia</button>
+    <a href="/ideias" class="button"> ver ideia</a>
+  </section>
 
-      <footer>
-        Com 💛 <a href="https://www.linkedin.com/in/mateus-s-santos-8b89791b6/" target="_blank">Mateus S. Santos</a>
-      </footer>
-    </section>
-      {% include "all_ideas.html" %}
-    <section id="last-ideias">
+  <footer>
+    Com 💛 <a href="https://www.linkedin.com/in/mateus-s-santos-8b89791b6/" target="_blank">Mateus S. Santos</a>
+  </footer>
+</section>
 
-    </section>
+<section id="last-ideias">
+  {% include "all_ideas.html" %}
+</section>
 
-  </div>
-
-  <!-- Modal -->
-  {% include "modal.html" %}
-
-  <script src="./script.js"></script>
-</body>
-
-</html>
+{% endblock %}
