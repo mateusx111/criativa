@@ -2,41 +2,13 @@
 const express = require("express")
 const server = express()
 
-const db = require("./db.js")
-
-//const ideas = [
-//   {
-//     img: "https://cdn-icons-png.flaticon.com/128/8263/8263115.png",
-//     title: "Cursos de Programção",
-//     category: "Estudo",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae",
-//     url: "https://github.com/",
-//   },
-//   {
-//     img: "https://cdn-icons-png.flaticon.com/128/1896/1896290.png",
-//     title: "Acamp's Shalom",
-//     category: "Acampamento",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae",
-//     url: "https://github.com/",
-//   },
-//   {
-//     img: "https://cdn-icons-png.flaticon.com/128/7803/7803739.png",
-//     title: "Exercícios",
-//     category: "Saúde",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae",
-//     url: "https://github.com/",
-//   },
-//   {
-//     img: "https://cdn-icons-png.flaticon.com/128/2558/2558332.png",
-//     title: "Fotos",
-//     category: "Fotografía",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae",
-//     url: "https://github.com/",
-//   },
-//]
+const db = require("./db")
 
 //configura arquivos estaticos:(css,scripts, imagens)
 server.use(express.static("public"))
+
+//Habilitar uso do req.boddy
+server.use(express.urlencoded({ extended: true }))
 
 //confugutação do nunjucks
 const nunjucks = require("nunjucks")
@@ -45,7 +17,7 @@ nunjucks.configure("views", {
   noCache: true,
 })
 
-//Criewi uima rota "/"
+//Criei uma rota "/"
 // e capturei o pedido do cliente para responder
 server.get("/", function (req, res) {
 
@@ -82,6 +54,35 @@ server.get("/ideias", function (req, res) {
 
     const reversedIdeas = [ ...rows ].reverse()
     return res.render("ideias.html", { ideas: reversedIdeas })
+  })
+})
+
+server.post("/", function (req, res) {
+  //Inserir dados na tabela
+  const query = `
+  INSERT INTO ideas(
+    image, 
+    title, 
+    category, 
+    description, 
+    link
+  ) VALUES(?,?,?,?,?);
+`
+  const values = [
+    req.body.image,
+    req.body.title,
+    req.body.category,
+    req.body.description,
+    req.body.link
+  ]
+  db.run(query, values, function (err) {
+    if (err) {
+      console.log(err)
+      return res.send("Erro no banco de dados!!!")
+    }
+
+    return res.redirect("/ideias")
+
   })
 })
 

@@ -15,7 +15,7 @@ db.serialize(function () {
       );
   `)
 
-  //Inserir dados na tabela
+//   //Inserir dados na tabela
 //   const query = `
 //   INSERT INTO ideas(
 //     image, title, category, description, link
@@ -34,14 +34,14 @@ db.serialize(function () {
 //     console.log(this)
 //   })
 
-  //Deletar dado na tabela
+  // // Deletar dado na tabela
   // db.run(`DELETE FROM ideas WHERE id = ?`, [ 1 ], function (err) {
   //   if (err) return console.log(err)
 
   //   console.log("Deletei", this)
   // });
 
-  //consultar dado na tabela
+  // // consultar dado na tabela
   // db.all(`SELECT * FROM ideas`, function (err, rows) {
   //   if (err) return console.log(err)
 
